@@ -1,12 +1,12 @@
-import { useState } from 'react'
+
 import './App.css'
+import Usernav from './component/Navbar/Usernav'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      <Usernav />
     </>
   )
 }
