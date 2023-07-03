@@ -3,6 +3,7 @@ import './userprofile.css'
 import Usernav from '../Navbar/Usernav'
 import Sidebar from '../Sidebar/Sidebar'
 import Profileform from './Profileform'
+import SecuritySetting from './SecuritySetting'
 
 const Userprofile = () => {
   return (
@@ -17,7 +18,7 @@ const Userprofile = () => {
             </div>
             
             <div className="u-profile">
-                <Profileform />
+                <SecuritySetting />
             </div>
         </div>
     </div>
