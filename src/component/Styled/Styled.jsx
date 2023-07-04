@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { RxImage } from "react-icons/rx";
+import { PiEyeLight, PiEyeSlashLight } from "react-icons/pi";
 
 export const ContainerFBG = styled.div`
   display: flex;
@@ -52,7 +53,7 @@ export const FormCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 687px;
+    width: 687px;
     height: auto;
     margin-top: 3%;
     padding-top: 25px;
@@ -61,6 +62,11 @@ export const FormCard = styled.div`
     padding-bottom: 25px;
     border-radius: 8px;
     background-color: #fff;
+
+    @media screen and (max-width: 767px) {
+        width: 343px;
+        margin-top: 25px;
+    }
 `;
 
 export const CoverImgEdit = styled.img`
@@ -116,11 +122,80 @@ export const FormDiv = styled.form`
     width: 100%;
 `;
 
+export const PGraphF = styled.p`
+    width: 550px;
+    color: #98A2B3;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-bottom: 0;
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+`;
+
+export const InputGridDiv = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "overlap";
+`;
+
+export const InputGrid = styled.input`
+    grid-area: overlap;
+    align-self: center;
+    justify-self: center;
+    font-size: 14px;
+    width: 100%;
+    height: 44px;
+    border: 1px solid #98A2B3;
+    border-radius: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #101828;
+    appearance: none;
+    outline: none;
+
+    &::placeholder {
+        color: #98A2B3;
+    }
+`;
+
+export const IconGrid = styled.div`
+    grid-area: overlap;
+    align-self: center;
+    justify-self: end;
+    place-items: center;
+    height:auto;
+    padding-bottom: 0;
+    margin-right: 20px;
+    align-items: center;
+`;
+
+export const IconFlex = styled.div`
+    display: flex;
+    align-self: center;
+    justify-self: end;
+    cursor: pointer;
+`;
+
+export const EyeIcon = styled(PiEyeLight)`
+    color: #98A2B3;
+    font-size: 20px;
+`;
+
+export const SlashEyeIcon = styled(PiEyeSlashLight)`
+    color: #98A2B3;
+    font-size: 20px;
+`;
+
 export const LabelInput = styled.label`
     font-size: 14px;
     font-weight: 600;
     color: #101828;
     margin-top: 25px;
+    margin-bottom: 10px;
 `;
 
 export const Input = styled.input`
@@ -134,7 +209,6 @@ export const Input = styled.input`
     color: #101828;
     appearance: none;
     outline: none;
-    margin-top: 10px;
 
     &::placeholder {
         color: #98A2B3;
@@ -153,10 +227,57 @@ export const EmailInput = styled.input`
     color: #101828;
     appearance: none;
     outline: none;
-    margin-top: 10px;
 
     &::placeholder {
         color: #98A2B3;
+    }
+`;
+
+export const ErrorMsg = styled.div`
+    font-size: 12px;
+    font-weight: 300;
+    color: #f00;
+    margin-top: 5px;
+`;
+
+export const TabDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    border-bottom: 3px solid #DADADA;
+`;
+
+export const ButtonTab = styled.button`
+    font-size: 14px;
+    font-weight: 100;
+    color: #101828;
+    background-color: #fff;
+    border: none;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+
+    &.active {
+        font-weight: 300;
+        color: #3538CD;
+        border-bottom: 3px solid #3538CD;
+    }
+
+    @media screen and (max-width: 767px) {
+        font-size: 12px;
+    }
+`;
+
+export const TogDiv = styled.div`
+    width: 100%;
+    height: auto;
+    display: none;
+
+    &.active {
+        display: block;
     }
 `;
 
@@ -171,3 +292,5 @@ export const ButtonP = styled.button`
     background-color: #3538CD;
     margin-top: 35px;
 `;
+
+

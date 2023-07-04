@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { useState } from "react";
 import "./securitysetting.css";
 import Passwordform from './Passwordform';
-import { ContainerFBG, LabelHeader, FormCard, CoverImgEdit } from '../Styled/Styled';
+import { ContainerFBG, LabelHeader, FormCard, TabDiv, ButtonTab, TogDiv } from '../Styled/Styled';
+import Pinform from './Pinform';
 
 const SecuritySetting = () => {
+
+    const [toggleState, setToggleState] = useState(1);
+
+    const toggleTab = (index) => {
+        setToggleState(index);
+    };
+
   return (
     <ContainerFBG>
       <LabelHeader>
@@ -12,11 +21,35 @@ const SecuritySetting = () => {
       
 
       <FormCard>
-      {/* <CoverImgEdit 
-        src="https://res.cloudinary.com/dafxzu462/image/upload/v1687740198/Rectangle_315profilecoverbg_pllpwe.png"
-        alt="cover-image"
-      /> */}
-        <Passwordform />
+        <TabDiv>
+            <ButtonTab
+                className={toggleState === 1 ? 'active' : ''}
+                onClick={() => toggleTab(1)}
+            >
+                Change Password
+            </ButtonTab>
+
+            <ButtonTab
+                className={toggleState === 2 ? 'active' : ''}
+                onClick={() => toggleTab(2)}
+            >
+                Change Transaction Pin
+            </ButtonTab>
+        </TabDiv>
+
+        <TogDiv
+            className={toggleState === 1 ? "active" : ""}
+        >
+            <Passwordform />
+        </TogDiv>
+
+        <TogDiv
+            className={toggleState === 2 ? "active" : ""}
+        >
+            <Pinform />
+        </TogDiv>
+        
+        
       </FormCard>
 
     </ContainerFBG>
