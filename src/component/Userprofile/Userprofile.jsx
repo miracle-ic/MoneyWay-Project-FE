@@ -4,27 +4,27 @@ import Usernav from '../Navbar/Usernav'
 import Sidebar from '../Sidebar/Sidebar'
 import Profileform from './Profileform'
 import SecuritySetting from './SecuritySetting'
-import { ContainerFBG } from '../Styled/Styled';
+import { BodyFrame, ContainerFBG, SideFrame, UserCon } from '../Styled/Styled';
 import { Outlet } from 'react-router-dom'
 
 const Userprofile = () => {
   return (
-    <div className='user-container'>
-        <div className="u-header">
+    <UserCon>
+        <div>
             <Usernav />
         </div>
 
-        <div className="u-body">
-            <div className="u-side">
+        <BodyFrame>
+            <SideFrame>
                 <Sidebar />
-            </div>
+            </SideFrame>
             
             
                 {/* <Profileform /> */}
                 {/* <SecuritySetting /> */}
                 <Outlet/>
-        </div>
-    </div>
+        </BodyFrame>
+    </UserCon>
   )
 }
 

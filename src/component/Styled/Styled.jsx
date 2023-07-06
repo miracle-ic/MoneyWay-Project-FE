@@ -495,5 +495,31 @@ export const NavLogoDiv = styled(Link)`
     text-decoration: none;
 `;
 
-//---------------------------------------------Other
+//---------------------------------------------Userprofile page
 
+export const UserCon = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+`;
+
+export const BodyFrame = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+`;
+export const SideFrame = styled.div`
+    height: 100%;
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+`;
+export const ProfileFrame = styled.div`
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+`;
