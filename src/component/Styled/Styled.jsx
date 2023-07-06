@@ -1,12 +1,19 @@
 import styled from "styled-components";
 import { RxImage } from "react-icons/rx";
 import { PiEyeLight, PiEyeSlashLight } from "react-icons/pi";
+import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { SlBell } from "react-icons/sl";
+import { AiOutlineMenu } from "react-icons/ai";
+
+
 
 export const ContainerFBG = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 3%;
+  padding-bottom: 3%;
   padding-left: 2%;
   padding-right: 2%;
   width: 100%;
@@ -215,6 +222,25 @@ export const Input = styled.input`
     }
 `;
 
+export const InputDes = styled.textarea`
+    font-size: 14px;
+    width: 100%;
+    height: 165px;
+    border: 1px solid #98A2B3;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #101828;
+    appearance: none;
+    outline: none;
+    font-family: inter;
+
+    &::placeholder {
+        color: #98A2B3;
+    }
+`;
+
 export const EmailInput = styled.input`
     font-size: 14px;
     width: 100%;
@@ -293,4 +319,181 @@ export const ButtonP = styled.button`
     margin-top: 35px;
 `;
 
+// ---------------------------------------------Sidebar style
+
+export const SideCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 100%;
+    background-color: #fff;
+    // border: 1px solid rgb(226, 226, 226);
+`;
+
+export const SideNavDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+`;
+
+export const SideLine = styled.div`
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #DADADA;
+`;
+
+export const SideNavLink = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #5C6881;
+    fill: #5C6881;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+  
+    &.active {
+        color: #fff;
+        background-color: #3538CD;
+    }
+
+    &:hover {
+        color: #3538CD;
+        background-color: #EEF4FF;
+    }
+`;
+
+export const LogoutBTN = styled.button`
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #3538CD;
+    background-color: #EEF4FF;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+`;
+
+//---------------------------------------------User NavBar
+
+export const NavBarCon = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    height: 96px;
+    padding-left: 2%;
+    padding-right: 7%;
+    background-color: #fff;
+
+    @media screen and (max-width: 900px) {
+        height: 56px;
+        padding-left: 5%;
+    }
+
+    @media screen and (max-width: 767px) {
+        height: 56px;
+    }
+`;
+
+export const NotiDiv = styled.a`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "overlap";
+    color: #000;
+    margin-right: 30px;
+    text-decoration: none;
+    cursor: pointer;
+`;
+
+export const NavRightDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+`;
+
+export const BellIcon = styled(SlBell)`
+    grid-area: overlap;
+    align-self: center;
+    justify-self: center; 
+    font-size: 20px;
+`;
+
+export const NotiAlert = styled.div`
+    grid-area: overlap;
+    align-self: start;
+    justify-self: end;
+    margin-top: -2px;
+    margin-right: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #F61805;
+`;
+
+export const UserAvDiv = styled.a`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+`;
+
+export const MenuIcon = styled(AiOutlineMenu)`
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 5%;
+    font-size: 20px;
+
+    @media screen and (max-width: 900px) {
+        display: flex;
+        width: 30px;
+        height: 30px;
+    }
+
+    @media screen and (max-width: 767px) {
+        display: flex;
+        width: 20px;
+        height: 20px;
+    }
+`;
+
+export const NavLogoDiv = styled(Link)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #3538cd;
+    text-decoration: none;
+`;
+
+//---------------------------------------------Other
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from "react";
-import "./securitysetting.css";
 import Passwordform from './Passwordform';
 import { ContainerFBG, LabelHeader, FormCard, TabDiv, ButtonTab, TogDiv } from '../Styled/Styled';
 import Pinform from './Pinform';

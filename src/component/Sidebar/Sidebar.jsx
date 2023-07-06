@@ -1,27 +1,69 @@
-import React from 'react'
-import { LuLayoutDashboard } from 'react-icons/lu';
-import { MdLogout } from 'react-icons/md';
-import paymentSvg from '../payment.svg'
-import fundwalletSvg from '../fundwallet.svg'
-import transferSvg from '../transfer.svg'
-import './sidebar.css';
+import React from "react";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { MdLogout } from "react-icons/md";
+import { BiWallet } from "react-icons/bi";
+import { CiMoneyBill } from "react-icons/ci";
+import { PiArrowCircleUpRight, PiMoney } from "react-icons/pi";
+import { SideCard, SideNavLink, SideLine, SideNavDiv, LogoutBTN } from "../Styled/Styled";
+
 
 
 const Sidebar = () => {
-  return (
-    <div className='s-menu'>
-        <div className="s-nav">
-            <a href="" className='a-dash'><LuLayoutDashboard className="s-icon" />Dashboard</a>
-            <a href=""><img src={paymentSvg} className="s-icon" />Payments</a>
-            <a href=""><img src={fundwalletSvg} className="s-icon" />Fund Wallet</a>
-            <a href=""><img src={transferSvg} className="s-icon" />Transfer</a>
-        </div>
-        <div className="s-line"></div>
-        <div className="s-logout">
-        <a href="" className='a-logout'><MdLogout className="s-icon" />Logout</a>
-        </div>
-    </div>
-  )
-}
 
-export default Sidebar
+  return (
+    <SideCard>
+      <SideNavDiv>
+          <SideNavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+            to={"/home/"}
+          >
+            <LuLayoutDashboard style={{ marginRight: '5px', fontSize: '22px' }} />
+            Dashboard
+          </SideNavLink>
+
+          <SideNavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+            to={"/home/payment"}
+          >
+            <PiMoney style={{ marginRight: '5px', fontSize: '22px' }} />
+            Payments
+          </SideNavLink>
+
+          <SideNavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+            to={"/home/fundwallet"}
+          >
+            <BiWallet style={{ marginRight: '5px', fontSize: '22px' }} />
+            Fund Wallet
+          </SideNavLink>
+
+          <SideNavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+            to={"/home/transfer"}
+          >
+            <PiArrowCircleUpRight style={{ marginRight: '5px', fontSize: '22px' }} />
+            Transfer
+          </SideNavLink>
+      </SideNavDiv>
+
+      <SideLine />
+
+      <SideNavDiv>
+      <LogoutBTN>
+      <MdLogout style={{ marginRight: '5px', fontSize: '22px' }} />
+        Logout
+    </LogoutBTN>
+      </SideNavDiv>
+    </SideCard>
+  );
+};
+
+export default Sidebar;

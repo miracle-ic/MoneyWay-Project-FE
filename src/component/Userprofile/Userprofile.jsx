@@ -4,6 +4,8 @@ import Usernav from '../Navbar/Usernav'
 import Sidebar from '../Sidebar/Sidebar'
 import Profileform from './Profileform'
 import SecuritySetting from './SecuritySetting'
+import { ContainerFBG } from '../Styled/Styled';
+import { Outlet } from 'react-router-dom'
 
 const Userprofile = () => {
   return (
@@ -17,9 +19,10 @@ const Userprofile = () => {
                 <Sidebar />
             </div>
             
-            <div className="u-profile">
-                <SecuritySetting />
-            </div>
+            
+                {/* <Profileform /> */}
+                {/* <SecuritySetting /> */}
+                <Outlet/>
         </div>
     </div>
   )
