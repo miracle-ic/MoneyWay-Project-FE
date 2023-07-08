@@ -1,7 +1,12 @@
 import React from "react";
+import { useState } from "react";
 
 import {
   BellIcon,
+  CloseIcon,
+  IconFlex,
+  MIconFlex,
+  MenuCard,
   MenuIcon,
   NavBarCon,
   NavLogoDiv,
@@ -10,8 +15,16 @@ import {
   NotiDiv,
   UserAvDiv,
 } from "../Styled/Styled";
+import Mobilemenu from "../Sidebar/Mobilemenu";
 
 const Usernav = () => {
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenuVisibility = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <NavBarCon>
       <NavLogoDiv>
@@ -41,7 +54,22 @@ const Usernav = () => {
           Adetutu
         </UserAvDiv>
       </NavRightDiv>
-      <MenuIcon />
+
+      <MIconFlex
+        className={`show-menu-icon ${showMenu ? "visible" : ""}`}
+        onClick={toggleMenuVisibility}
+      >
+            <IconFlex>
+              {showMenu ? <CloseIcon /> : <MenuIcon />}
+            </IconFlex>
+      </MIconFlex>
+
+      <MenuCard
+        className={showMenu ? "active" : ""}
+        onClick={toggleMenuVisibility}
+      >
+      <Mobilemenu />
+      </MenuCard>
     </NavBarCon>
   );
 };

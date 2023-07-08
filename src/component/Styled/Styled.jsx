@@ -4,7 +4,8 @@ import { PiEyeLight, PiEyeSlashLight } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { SlBell } from "react-icons/sl";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineCloseCircle } from "react-icons/ai";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 
 
@@ -319,74 +320,6 @@ export const ButtonP = styled.button`
     margin-top: 35px;
 `;
 
-// ---------------------------------------------Sidebar style
-
-export const SideCard = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 240px;
-    height: 100%;
-    background-color: #fff;
-    // border: 1px solid rgb(226, 226, 226);
-`;
-
-export const SideNavDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-`;
-
-export const SideLine = styled.div`
-    width: 100%;
-    height: 1px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    background-color: #DADADA;
-`;
-
-export const SideNavLink = styled(NavLink)`
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    color: #5C6881;
-    fill: #5C6881;
-    height: 40px;
-    width: 100%;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-  
-    &.active {
-        color: #fff;
-        background-color: #3538CD;
-    }
-
-    &:hover {
-        color: #3538CD;
-        background-color: #EEF4FF;
-    }
-`;
-
-export const LogoutBTN = styled.button`
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    color: #3538CD;
-    background-color: #EEF4FF;
-    height: 40px;
-    width: 100%;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-`;
 
 //---------------------------------------------User NavBar
 
@@ -462,28 +395,6 @@ export const UserAvDiv = styled.a`
     cursor: pointer;
 `;
 
-export const MenuIcon = styled(AiOutlineMenu)`
-    display: none;
-    position: absolute;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    margin-right: 5%;
-    font-size: 20px;
-
-    @media screen and (max-width: 900px) {
-        display: flex;
-        width: 30px;
-        height: 30px;
-    }
-
-    @media screen and (max-width: 767px) {
-        display: flex;
-        width: 20px;
-        height: 20px;
-    }
-`;
-
 export const NavLogoDiv = styled(Link)`
     display: flex;
     flex-direction: row;
@@ -522,4 +433,241 @@ export const ProfileFrame = styled.div`
     width: 100%;
     height: 100%;
     overflow: scroll;
+`;
+
+//-------------------------------------Successful Modals
+
+export const CModal = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+`;
+
+export const ModalCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 479px;
+    height: 346px;
+    padding: 48px;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    margin: auto auto;
+    transition: 850ms ease-in-out;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        height: 100%;
+        padding: 40% 17px 83px 17px;
+        border-radius: 0;
+        background-color: #F9FAFB;
+    }
+`;
+
+export const GoodIcon = styled(BsFillCheckCircleFill)`
+    color: #34A853;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 32px;
+`;
+
+export const LabelModal = styled.label`
+    font-size: 24px;
+    font-weight: 700;
+    color: #101828;
+`;
+
+export const ParaModal = styled.p`
+    color: #101828;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 32px;
+
+    @media screen and (max-width: 500px) {
+        margin-bottom: 50%;
+    }
+`;
+
+export const CloseBtn = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #101828;
+    background-color: #F2F4F7;
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+`;
+
+// ---------------------------------------------Sidebar style
+
+export const SideCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 100%;
+    background-color: #fff;
+    // border: 1px solid rgb(226, 226, 226);
+`;
+
+export const SideNavDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+`;
+
+export const SideLine = styled.div`
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    // margin-bottom: 10px;
+    background-color: #DADADA;
+`;
+
+export const SideNavLink = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #5C6881;
+    fill: #5C6881;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+  
+    &.active {
+        color: #fff;
+        background-color: #3538CD;
+    }
+
+    &:hover {
+        color: #3538CD;
+        background-color: #EEF4FF;
+    }
+`;
+
+export const LogoutBTN = styled.button`
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #3538CD;
+    background-color: #EEF4FF;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+
+    @media screen and (max-width: 900px) {
+        justify-content: center;
+    }
+`;
+
+//-------------------------------------Mobile Menu
+
+export const MenuCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 522px;
+    background-color: #fff;
+    position: absolute;
+    top: 56px;
+    z-index: 1;
+    right: 0;
+    right: -100%;
+    opacity: 0;
+    transition: 850ms ease-in-out;
+    // border: 1px solid rgb(226, 226, 226);
+
+    &.active {
+        right: 0;
+        opacity: 100%;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+`;
+
+export const MenuDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
+    padding-bottom: 0px;
+`;
+
+export const LogDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+`;
+
+export const PGraphM = styled.p`
+    width: 100%;
+    color: #98A2B3;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-top: 32px;
+`;
+
+export const MIconFlex = styled.div`
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 5%;
+    font-size: 20px;
+
+    @media screen and (max-width: 900px) {
+        display: flex;
+    }
+`;
+
+export const MenuIcon = styled(AiOutlineMenu)`
+    width: 30px;
+    height: 30px;
+
+    @media screen and (max-width: 767px) {
+        width: 20px;
+        height: 20px;
+    }
+`;
+
+export const CloseIcon = styled(AiOutlineCloseCircle)`
+    width: 30px;
+    height: 30px;
+
+    @media screen and (max-width: 767px) {
+        width: 20px;
+        height: 20px;
+    }
 `;

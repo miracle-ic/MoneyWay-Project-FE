@@ -1,5 +1,4 @@
 import React from 'react'
-import './userprofile.css'
 import Usernav from '../Navbar/Usernav'
 import Sidebar from '../Sidebar/Sidebar'
 import Profileform from './Profileform'
