@@ -27,6 +27,7 @@ const Usernav = () => {
   const [showNoti, setShowNoti] = useState(false);
 
   const dropdownRef = useRef(null);
+  const dropdownRef2 = useRef(null);
 
   const toggleMenuVisibility = () => {
     setShowMenu(!showMenu);
@@ -46,6 +47,8 @@ const Usernav = () => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowProfile(false);
+      }
+      if (dropdownRef2.current && !dropdownRef2.current.contains(event.target)) {
         setShowNoti(false);
       }
     };
@@ -75,7 +78,7 @@ const Usernav = () => {
         <NotiDiv
           className={showNoti ? "visible" : ""}
           onClick={toggleNoti}
-          ref={dropdownRef}
+          ref={dropdownRef2}
         >
           <BellIcon />
           <NotiAlert />
@@ -100,7 +103,7 @@ const Usernav = () => {
 {/* ----------------------------------------------------------------- */}
 
       <NotiCard
-        className={showNoti ? "visible" : ""}
+        className={showNoti ? "active" : ""}
         onClick={toggleNoti}
       >
         <Notificationmodal />
