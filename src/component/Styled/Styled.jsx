@@ -70,6 +70,7 @@ export const FormCard = styled.div`
     padding-bottom: 25px;
     border-radius: 8px;
     background-color: #fff;
+    transition: 850ms ease-in-out;
 
     @media screen and (max-width: 767px) {
         width: 343px;
@@ -424,6 +425,7 @@ export const BodyFrame = styled.div`
 `;
 export const SideFrame = styled.div`
     height: 100%;
+    transition: 850ms ease-in-out;
 
     @media screen and (max-width: 900px) {
         display: none;
@@ -579,6 +581,7 @@ export const LogoutBTN = styled.button`
     border: none;
 
     @media screen and (max-width: 900px) {
+        padding-left: 0;
         justify-content: center;
     }
 `;
@@ -586,23 +589,28 @@ export const LogoutBTN = styled.button`
 //-------------------------------------Mobile Menu
 
 export const MenuCard = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 375px;
-    height: 522px;
-    background-color: #fff;
-    position: absolute;
-    top: 56px;
-    z-index: 1;
-    right: 0;
-    right: -100%;
-    opacity: 0;
-    transition: 850ms ease-in-out;
-    // border: 1px solid rgb(226, 226, 226);
-
-    &.active {
+    display: none;
+    
+    @media screen and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        height: 522px;
+        background-color: #fff;
+        position: absolute;
+        top: 56px;
+        z-index: 1;
         right: 0;
-        opacity: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 500ms ease-in-out;
+        box-shadow: 0px 10px 12px 0px rgba(0, 0, 0, 0.02);
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transition: 500ms ease-in-out;
+        }
     }
 
     @media screen and (max-width: 500px) {
@@ -670,4 +678,169 @@ export const CloseIcon = styled(AiOutlineCloseCircle)`
         width: 20px;
         height: 20px;
     }
+`;
+
+//-----------------------------------Profile Modals
+
+export const PMCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 293px;
+    height: 238px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 96px;
+    z-index: 1;
+    right: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 500ms ease;
+    box-shadow: 0px 10px 12px 0px rgba(0, 0, 0, 0.02);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: 500ms ease;
+    }
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+`;
+
+export const PmHdiv = styled(NavLink)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // padding: 16px 16px 0 16px;
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: -4px;
+    // border: 1px solid rgb(226, 226, 226);
+    text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+`;
+
+export const LPdiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 0;
+    // border: 1px solid rgb(226, 226, 226);
+`;
+
+export const LabelPM = styled.label`
+    font-size: 14px;
+    font-weight: 600;
+    color: #101828;
+    cursor: pointer;
+`;
+
+export const ParaPM = styled.p`
+    color: #98A2B3;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 0px;
+`;
+
+export const LogoutBTNpm = styled.button`
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #5C6881;
+    background-color: #fff;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: none;
+    cursor: pointer;
+    text-decoration: none;
+    appearance: none;
+    border: none;
+
+    &:hover {
+        color: #3538CD;
+        // background-color: #EEF4FF;
+    }
+`;
+
+export const PmNavDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: -4px;
+    margin-top: 6px;
+    // border: 1px solid rgb(226, 226, 226);
+`;
+
+export const PmNavLink = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #5C6881;
+    fill: #5C6881;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+  
+    &.active {
+        color: #3538CD;
+        font-weight: 500;
+    }
+
+    &:hover {
+        color: #3538CD;
+        // background-color: #EEF4FF;
+    }
+`;
+
+//-----------------------------------Noti Modals
+
+export const NotiCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 435px;
+    height: 393px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 96px;
+    z-index: 1;
+    right: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 500ms ease;
+    box-shadow: 0px 10px 12px 0px rgba(0, 0, 0, 0.02);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: 500ms ease;
+    }
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+`;
+
+export const NHdiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background-color: #FCFCFD;
+    padding-left: 24px;
+    // border: 1px solid rgb(226, 226, 226);
 `;

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
   BellIcon,
@@ -12,18 +11,52 @@ import {
   NavLogoDiv,
   NavRightDiv,
   NotiAlert,
+  NotiCard,
   NotiDiv,
+  PMCard,
   UserAvDiv,
 } from "../Styled/Styled";
 import Mobilemenu from "../Sidebar/Mobilemenu";
+import Profilemodal from "./Profilemodal";
+import Notificationmodal from "./Notificationmodal";
 
 const Usernav = () => {
 
   const [showMenu, setShowMenu] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+  const [showNoti, setShowNoti] = useState(false);
+
+  const dropdownRef = useRef(null);
 
   const toggleMenuVisibility = () => {
     setShowMenu(!showMenu);
   };
+
+  const toggleProfile = () => {
+    setShowProfile(!showProfile);
+  };
+
+  const toggleNoti = () => {
+    setShowNoti(!showNoti);
+  };
+
+  
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowProfile(false);
+        setShowNoti(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+  
 
   return (
     <NavBarCon>
@@ -37,13 +70,22 @@ const Usernav = () => {
         />
         MoneyWay
       </NavLogoDiv>
+
       <NavRightDiv>
-        <NotiDiv>
+        <NotiDiv
+          className={showNoti ? "visible" : ""}
+          onClick={toggleNoti}
+          ref={dropdownRef}
+        >
           <BellIcon />
-          <NotiAlert></NotiAlert>
+          <NotiAlert />
         </NotiDiv>
 
-        <UserAvDiv>
+        <UserAvDiv
+          className={showProfile ? "visible" : ""}
+          onClick={toggleProfile}
+          ref={dropdownRef}
+        >
           <img
             src="https://res.cloudinary.com/dafxzu462/image/upload/v1687701303/Ellipse_21user-avatar_k5vu1n.png"
             alt="user profile avatar"
@@ -55,9 +97,27 @@ const Usernav = () => {
         </UserAvDiv>
       </NavRightDiv>
 
+{/* ----------------------------------------------------------------- */}
+
+      <NotiCard
+        className={showNoti ? "visible" : ""}
+        onClick={toggleNoti}
+      >
+        <Notificationmodal />
+      </NotiCard>
+
+
+{/* ----------------------------------------------------------------- */}
+      <PMCard
+        className={showProfile ? "active" : ""}
+        onClick={toggleProfile}
+      >
+        <Profilemodal />
+      </PMCard>
+
       <MIconFlex
         className={`show-menu-icon ${showMenu ? "visible" : ""}`}
-        onClick={toggleMenuVisibility}
+        onClick={toggleMenuVisibility} 
       >
             <IconFlex>
               {showMenu ? <CloseIcon /> : <MenuIcon />}
@@ -68,7 +128,7 @@ const Usernav = () => {
         className={showMenu ? "active" : ""}
         onClick={toggleMenuVisibility}
       >
-      <Mobilemenu />
+        <Mobilemenu />
       </MenuCard>
     </NavBarCon>
   );

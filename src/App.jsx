@@ -7,6 +7,8 @@ import SecuritySetting from "./component/Userprofile/SecuritySetting";
 import Fundwallet from "./component/Fundwallet/Fundwallet";
 import Pinmodal from "./component/Userprofile/Pinmodal";
 import Passwordmodal from "./component/Userprofile/Passwordmodal";
+import Profilemodal from "./component/Navbar/Profilemodal";
+import Notificationmodal from "./component/Navbar/Notificationmodal";
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Landing Page</h1>} />
           <Route path="/home" element={<Userprofile />} >
-            <Route index element={<Passwordmodal />} />
+            <Route index element={<Notificationmodal />} />
             <Route path="profile" element={<Profileform/>} />
             <Route path="security" element={<SecuritySetting/>} />
             <Route path="payment" element={<h1>Payment</h1>} />

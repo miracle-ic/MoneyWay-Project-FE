@@ -1,8 +1,9 @@
 import React from "react";
 import { LuLayoutDashboard, LuShieldAlert } from "react-icons/lu";
+import { FaRegUser } from "react-icons/fa";
 import { MdLogout, MdPhoneIphone } from "react-icons/md";
 import { BiWallet } from "react-icons/bi";
-import { FaRegUser } from "react-icons/fa";
+
 import { SlBell } from "react-icons/sl";
 import { PiArrowCircleUpRight, PiMoney } from "react-icons/pi";
 
